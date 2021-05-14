@@ -1,5 +1,10 @@
 let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
+let start = true;
+let temporizador; 
+let timer = 300;
+let level = 1;
+let score = 0;
 let box = 32;
 let snake = [];
 snake[0] = {
@@ -12,14 +17,15 @@ let food = {
     y: Math.floor(Math.random() * 15 + 1) * box
 }
 
-function criarBG() {
-    context.fillStyle = "lightgreen";
+
+function createBG() {
+    context.fillStyle = "#000";
     context.fillRect(0, 0, 16 * box, 16 * box);
 }
 
-function criarCobrinha() {
+function createSnake() {
     for(i = 0; i < snake.length; i++){
-        context.fillStyle = "green";
+        context.fillStyle = "#fff";
         context.fillRect(snake[i].x, snake[i].y, box, box)
     }
 }
@@ -38,7 +44,10 @@ function drawnFood(){
     context.fillRect(food.x, food.y, box, box);
 }
 
-function iniciarJogo(){
+function startGame(){
+
+    document.querySelector('.score-box').innerHTML = 'Score: ' + score;
+    document.querySelector('.level-game').innerHTML = 'Level: ' + level;
 
     if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
     if(snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;
@@ -47,13 +56,15 @@ function iniciarJogo(){
 
     for(i = 1; i < snake.length; i++){
         if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
-            clearInterval(jogo);
-            alert('Game Over :(')
+            clearInterval(temporizador);
+            alert('GAME OVER')
+            alert('PRESS OK TRY AGAIN')
+            restartGame();
         }
     }
 
-    criarBG();
-    criarCobrinha();
+    createBG();
+    createSnake();
     drawnFood()
 
     let snakeX = snake[0].x;
@@ -69,7 +80,12 @@ function iniciarJogo(){
     }
     else{
         food.x = Math.floor(Math.random() * 15 + 1) * box;
-        food.y = Math.floor(Math.random() * 15 + 1) * box;
+        food. y = Math.floor(Math.random() * 15 + 1) * box;
+        clearInterval(temporizador);
+        score = score + 50
+        timer -= 10;
+        level++;
+        init(timer)
     }
     
 
@@ -78,7 +94,17 @@ function iniciarJogo(){
         y: snakeY
     }
 
-    snake.unshift(newHead);
+    snake.unshift(newHead);   
+}
+alert('PRESS OK START GAME')
+
+function init(t) {
+    temporizador = setInterval(startGame, t);
 }
 
-let jogo = setInterval(iniciarJogo, 100);
+function restartGame(){
+    if (start == true) {
+        location.reload();        
+    }
+}
+

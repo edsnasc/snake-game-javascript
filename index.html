@@ -5,11 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
+    <link rel="shortcut icon" href="img/snake.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <script defer src="script.js"></script>
 </head>
-<body>
-    <h1>SNAKE GAME !</h1>
-    <canvas id="snake" width="512" height="512"></canvas>
+<body  onload="init(300)">
+    <div class="logo">
+        <h1>SNAKE GAME !</h1><img src="./img/snake.png" alt="snake" width="60" height="60"> 
+    </div>
+    <div>
+        <canvas id="snake" width="512" height="512"></canvas>
+        <div class="game-information">
+            <span class="score-box"></span>
+            <span class="level-game"></span>
+        </div>
+    </div>
+    <audio src="./sound/music2.mp3" autoplay controls loop></audio>
 </body>
 </html>

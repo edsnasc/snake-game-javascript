@@ -5,6 +5,19 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color:white;
-    color: rgb(52, 165, 52);
+    background: linear-gradient(to right, rgb(142, 158, 171), rgb(238, 242, 243));
+    color: #000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Girassol', cursive;
+}
+
+.game-information {
+    display: flex;
+    justify-content: space-around;
+    font-size: 36px;
+    font-family: 'Bungee Inline', cursive;
 }
