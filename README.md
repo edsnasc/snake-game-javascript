@@ -1,4 +1,4 @@
-# Dinossaur Game
+# Snake Game
 
 
 <p align="center">
@@ -28,9 +28,7 @@ minhas implementações:</p>
 
 # Link para testar (desktop)
 
-  ```bash
-    https://laughing-snakegame.netlify.app/
-   ```
+https://laughing-snakegame.netlify.app/
 
 # Preview 🛰
 
